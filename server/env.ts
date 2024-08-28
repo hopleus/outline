@@ -493,6 +493,12 @@ export class Environment {
   @IsOptional()
   public AWS_S3_UPLOAD_BUCKET_URL = environment.AWS_S3_UPLOAD_BUCKET_URL ?? "";
 
+  @Public
+  @IsOptional()
+  public AWS_S3_UPLOAD_BUCKET_URL_FRONT_BYPASS_CORS = this.toOptionalString(
+    environment.AWS_S3_UPLOAD_BUCKET_URL_FRONT_BYPASS_CORS
+  );
+
   /**
    * The bucket name to store file attachments in.
    */

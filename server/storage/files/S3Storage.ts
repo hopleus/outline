@@ -84,9 +84,11 @@ export default class S3Storage extends BaseStorage {
       return host;
     }
 
-    return `${host}/${isServerUpload && isDocker ? "s3/" : ""}${
-      env.AWS_S3_UPLOAD_BUCKET_NAME
-    }`;
+    if (!isServerUpload && env.AWS_S3_UPLOAD_BUCKET_URL_FRONT_BYPASS_CORS) {
+      return `${env.AWS_S3_UPLOAD_BUCKET_URL_FRONT_BYPASS_CORS}/${env.AWS_S3_UPLOAD_BUCKET_NAME}`;
+    }
+
+    return `${host}/${isServerUpload && isDocker ? "s3/" : ""}${env.AWS_S3_UPLOAD_BUCKET_NAME}`;
   }
 
   public getUploadUrl(isServerUpload?: boolean) {
