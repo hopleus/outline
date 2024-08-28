@@ -28,6 +28,15 @@ If you have questions or improvements for the docs please create a thread in [Gi
 
 There is a short guide for [setting up a development environment](https://docs.getoutline.com/s/hosting/doc/local-development-5hEhFRXow7) if you wish to contribute changes, fixes, and improvements to Outline.
 
+Build docker images
+```shell
+make dockerhub-base
+
+docker login -u <USERNAME>
+
+make dockerhub
+```
+
 ## Contributing
 
 Outline is built and maintained by a small team – we'd love your help to fix bugs and add features!
